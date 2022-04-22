@@ -49,18 +49,20 @@ public class GridPanel extends JPanel {
 
         for (int i = 0,j = 0, i < pics.length; i++ ){
             icons[j] = ImageIcon(this.getClass().getResource(pics[i]));
-            buttons[j] = new JButton('');
-            buttons[j].addActionListener(new GridPanel.());
-            buttons[j].setIcon(tarjBack);
-            buttons[j].setBackground(Color.WHITE);
-            add(buttons[j++]);
+            j = makeButtons(j):
+            //buttons[j] = new JButton('');
+            //buttons[j].addActionListener(new GridPanel.());
+           // buttons[j].setIcon(tarjBack);
+            b//uttons[j].setBackground(Color.WHITE);
+            //add(buttons[j++]);
 
             icons[j] = icons[j-i];
-            buttons[j] = new JButton('');
-            buttons[j].setIcon(tarjBack);
-            buttons[j].setBackground(Color.WHITE);
-            buttons[j].addActionListener(new GridPanel.ImageButtonListener());
-            addButtons([j++]);
+            j = makeButtons(j);
+            //buttons[j] = new JButton('');
+            //buttons[j].setIcon(tarjBack);
+            //buttons[j].setBackground(Color.WHITE);
+            //buttons[j].addActionListener(new GridPanel.ImageButtonListener());
+            //addButtons([j++]);
 
         }
         Random rnd = new Random();
@@ -72,6 +74,22 @@ public class GridPanel extends JPanel {
         }
         myTime = new Timer(1000,new TimerListener());
 
+    }
+    private int makeButtons(int,j){
+        buttons[j] = new JButton('');
+        buttons[j].addActionListener(new GridPanel.());
+        buttons[j].setIcon(tarjBack);
+        buttons[j].setBackground(Color.WHITE);
+        add(buttons[j++]);
+        return j;
+
+    }
+    private class TimerListener implements ActionListener{
+        public void actionPerformed(ActionEvent e){
+            buttons[currentIndex].setIcon(tarjBack);
+            buttons[oddClickIndex].setIcon(tarjBack);
+            myTime.stop();
+        }
     }
 
 }
