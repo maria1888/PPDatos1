@@ -11,8 +11,9 @@ import javax.swing.JFrame;
  */
 
 public class JuegoFrame extends JFrame {
+    private static final long serialVersionUID = -86280715124735450L;
+    private PanelJuego pj;
     public JuegoFrame(){
-        Tarjetas tarjetas = new Tarjetas();
         setTitle("Memory Game");
         setBackground(Color.WHITE);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -20,6 +21,7 @@ public class JuegoFrame extends JFrame {
         setIconImage(Toolkit.getDefaultToolkit()
                 .getImage(JuegoFrame.class
                 .getResource("/JMemoria/Imagenes/op2Fondo.jpg")));
-        getContentPane().setLayout(new GridLayout(4,tarjetas.length));
+        pj = new PanelJuego();
+        setContentPane(pj);
     }
 }
